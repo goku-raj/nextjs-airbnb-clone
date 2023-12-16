@@ -2,7 +2,7 @@
 
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import {
     FieldValues,
@@ -63,6 +63,10 @@ const LoginModal = () => {
                     }
                 });
         }
+    const toggle = useCallback(() => {
+        loginModal.onClose()
+        registerModal.onOpen()
+    }, [loginModal, registerModal]);
 
     const bodyContent = (
         <div className="flex flex-col gap-4">
@@ -113,14 +117,14 @@ const LoginModal = () => {
                     mt-4 
                     font-light"
             >
-                <p>Don't have an account?
+                <p>First time using Airbnb?
                     <span
-                        onClick={loginModal.onClose}
+                        onClick={toggle}
                         className="
                         text-neutral-800
                         cursor-pointer 
                         hover:underline"
-                    > Sign up</span>
+                    > Create an account</span>
                 </p>
             </div>
         </div>
