@@ -12,6 +12,7 @@ import useRentModal from '@/app/hooks/useRentModal';
 import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
 import { useRouter } from 'next/navigation';
+import Heading from '../Heading';
 
 interface UserMenuProps {
     currentUser?: SafeUser | null
@@ -59,6 +60,13 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                     <div className='flex flex-col cursor-pointer'>
                         {currentUser ? (
                             <>
+                                <div className='bg-red-300'>
+                                    <MenuItem
+                                        label={`${currentUser?.name}`}
+                                        onClick={() => { }}
+                                    />
+                                </div>
+                                <hr />
                                 <MenuItem
                                     onClick={() => router.push('/trips')}
                                     label='My Trips'
@@ -68,7 +76,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                                     label='My Favorites'
                                 />
                                 <MenuItem
-                                    onClick={() => { }}
+                                    onClick={() => router.push('/reservations')}
                                     label='My Reservations'
                                 />
                                 <MenuItem
