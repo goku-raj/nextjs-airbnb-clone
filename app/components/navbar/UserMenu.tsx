@@ -72,7 +72,7 @@ const UserMenu = ({ currentUser }: UserMenuProps) => {
                                     label='My Trips'
                                 />
                                 <MenuItem
-                                    onClick={() => { }}
+                                    onClick={() => router.push('/favorites')}
                                     label='My Favorites'
                                 />
                                 <MenuItem
